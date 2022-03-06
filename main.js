@@ -59,11 +59,11 @@ function stiskSipky(udalost) {
 	parseInt(poziceY) + panacekVyska < parseInt(mincePoziceY) || 
 	parseInt(mincePoziceY) + minceSirka < parseInt(poziceY))) 
 	{
-		console.log('prekryvame se');
 		console.log(score.textContent); 
 		let noveScore = parseInt(score.textContent) + 1;
 		score.textContent = noveScore;
-		//score.textContent = noveScore;
+		mincePoziceX = mince.style.left = Math.random() * (platnoSirka - minceSirka) + 'px';
+		mincePoziceY = mince.style.top = Math.random() * (platnoVyska - minceSirka) + 'px';
 	}
 }
 
