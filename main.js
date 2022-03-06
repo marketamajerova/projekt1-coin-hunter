@@ -15,6 +15,8 @@ let minceSirka = mince.clientWidth;
 let mincePoziceX = mince.style.left = Math.random() * (platnoSirka - minceSirka) + 'px';
 let mincePoziceY = mince.style.top = Math.random() * (platnoVyska - minceSirka) + 'px';
 
+//score
+let score = document.getElementById('score'); 
 
 function stiskSipky(udalost) {
 
@@ -25,10 +27,7 @@ function stiskSipky(udalost) {
 		poziceX = parseInt(poziceX) + 15 + 'px';
 		let novaPoziceX = poziceX;
 		panacek.style.left = novaPoziceX;
-
-		//if (panacek.style.left === platnoSirka ){
-		//		novaPoziceX = platnoSirka;
-		//	} 
+ 
 
 	} else if (udalost.code === 'ArrowLeft') {
 
@@ -60,14 +59,20 @@ function stiskSipky(udalost) {
 	parseInt(poziceY) + panacekVyska < parseInt(mincePoziceY) || 
 	parseInt(mincePoziceY) + minceSirka < parseInt(poziceY))) 
 	{
-		console.log('prekryvame se'); //funguje pouze kdyz se obrazky prekryvaji na zacatku, ne v prubehu hry..
+		console.log('prekryvame se');
+		console.log(score.textContent); 
+		let noveScore = parseInt(score.textContent) + 1;
+		score.textContent = noveScore;
+		//score.textContent = noveScore;
 	}
 }
 
 
 
-
-// problemy : mince obcas vyskoci z obrazovky, panacek vybiha z obraovky
-/* otazky :
+/*
+ problemy :
+ 	1) mince obcas vyskoci z obrazovky, 
+	2) panacek vybiha z obraovky
+ otazky :
 	1) Proc nefunguje -> panacekVyska = panacek.style.width; ale pouze clientWidth
 */
