@@ -15,10 +15,17 @@ let minceSirka = mince.clientWidth;
 let mincePoziceX = mince.style.left = Math.random() * (platnoSirka - minceSirka) + 'px';
 let mincePoziceY = mince.style.top = Math.random() * (platnoVyska - minceSirka) + 'px';
 
+//zvuky
+let zvukMince = document.getElementById('zvukmince');
+let zvukFanfara = document.getElementById('zvukfanfara');
+let hudba = document.getElementById('hudba');
+
 //score
 let score = document.getElementById('score'); 
 
 function stiskSipky(udalost) {
+
+	hudba.play();
 
 	if (udalost.code === 'ArrowRight') {
 
@@ -64,6 +71,12 @@ function stiskSipky(udalost) {
 		score.textContent = noveScore;
 		mincePoziceX = mince.style.left = Math.random() * (platnoSirka - minceSirka) + 'px';
 		mincePoziceY = mince.style.top = Math.random() * (platnoVyska - minceSirka) + 'px';
+		zvukMince.play();
+	}
+
+	if (score.textContent == 5){
+		score.textContent = 'Vyhrala jsi !!!';
+		zvukFanfara.play();
 	}
 }
 
