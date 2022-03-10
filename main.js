@@ -31,7 +31,7 @@ function stiskSipky(udalost) {
 
 		panacek.src = 'obrazky/panacek-vpravo.png';
 		  
-		poziceX = parseInt(poziceX) + 15 + 'px';
+		poziceX = parseInt(poziceX) + 20 + 'px';
 		let novaPoziceX = poziceX;
 		panacek.style.left = novaPoziceX;
  
@@ -40,7 +40,7 @@ function stiskSipky(udalost) {
 
 		panacek.src = 'obrazky/panacek-vlevo.png';
 		
-		poziceX = parseInt(poziceX) - 15 + 'px';
+		poziceX = parseInt(poziceX) - 20 + 'px';
 		let novaPoziceX = poziceX;
 		panacek.style.left = novaPoziceX;
 		
@@ -48,7 +48,7 @@ function stiskSipky(udalost) {
 
 		panacek.src = 'obrazky/panacek.png';
 		
-		poziceY = parseInt(poziceY) + 15 + 'px';
+		poziceY = parseInt(poziceY) + 20 + 'px';
 		let novaPoziceY = poziceY;
 		panacek.style.top = novaPoziceY;
 
@@ -56,7 +56,7 @@ function stiskSipky(udalost) {
 
 		panacek.src = 'obrazky/panacek-nahoru.png';
 		
-		poziceY = parseInt(poziceY) - 15 + 'px';
+		poziceY = parseInt(poziceY) - 20 + 'px';
 		let novaPoziceY = poziceY;
 		panacek.style.top = novaPoziceY;
 	}
@@ -78,14 +78,18 @@ function stiskSipky(udalost) {
 		score.textContent = 'Vyhrala jsi !!!';
 		zvukFanfara.play();
 	}
+
+
+	if (parseInt(poziceY) < 0){
+		poziceY = 0;
+	} 
+	if (parseInt(poziceX) < 0){
+		poziceX = 0;
+	} 
+	if ((platnoVyska - panacekVyska) < parseInt(poziceY)){
+		poziceY = 0;
+	}
+	if ((platnoSirka - panacekSirka) < parseInt(poziceX)){
+		poziceX = 0;
+	}
 }
-
-
-
-/*
- problemy :
- 	1) mince obcas vyskoci z obrazovky, 
-	2) panacek vybiha z obraovky
- otazky :
-	1) Proc nefunguje -> panacekVyska = panacek.style.width; ale pouze clientWidth
-*/
