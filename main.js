@@ -1,3 +1,5 @@
+console.log('zkouska develop vetve');
+
 // panacek
 let panacek = document.getElementById('panacek');
 let poziceX = panacek.style.left = '500px';
